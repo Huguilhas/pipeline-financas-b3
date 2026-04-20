@@ -1,0 +1,22 @@
+# Python
+venv/
+__pycache__/
+*.pyc
+
+# Airflow
+airflow.cfg
+unittests.cfg
+logs/
+
+# dbt & DuckDB
+profiles/
+target/
+dbt_modules/
+dbt_packages/
+*.db
+*.duckdb
+data/
+
+# Outros
+.env
+C:* # Para evitar aquele arquivo estranho com caminho do Windows

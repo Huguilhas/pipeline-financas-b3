@@ -1,0 +1,17 @@
+version: 2
+
+models:
+  - name: stage_cotacoes
+    columns:
+      - name: date
+        tests:
+          - not_null
+      - name: ticker
+        tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: ['PETR4.SA', 'VALE3.SA', 'ITUB4.SA', 'BBDC4.SA', 'WEGE3.SA']
+      - name: close
+        tests:
+          - not_null
