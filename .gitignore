@@ -17,6 +17,17 @@ dbt_packages/
 *.duckdb
 data/
 
+# dbt
+cotacoes_b3/target/
+cotacoes_b3/dbt_packages/
+cotacoes_b3/logs/
+
+# DuckDB
+*.duckdb
+
+# Streamlit
+.streamlit/
+
 # Outros
 .env
 C:* # Para evitar aquele arquivo estranho com caminho do Windows
