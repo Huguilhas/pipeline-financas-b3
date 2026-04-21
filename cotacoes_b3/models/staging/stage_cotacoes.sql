@@ -1,6 +1,8 @@
+{{ config(materialized='table') }}
+
 WITH fonte AS (
     SELECT * FROM read_csv_auto(
-        '/opt/airflow/data/bronze/*.csv',
+        '{{ env_var("BRONZE_PATH", "../data/bronze") }}/*.csv',
         header = true
     )
 )
