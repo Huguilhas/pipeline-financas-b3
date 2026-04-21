@@ -20,6 +20,7 @@ pipeline de dados para coleta, tratamento e analise de cotacoes da b3, seguindo 
 - **Silver** — dados limpos e tipados via dbt (stage_cotacoes)
 - **Gold** — modelos analíticos via dbt (retorno diário e volatilidade)
 - Orquestrado pelo **Apache Airflow** rodando em Docker.
+
 ## Estrutura
 pipeline-financas-b3/  
 ├── source/          ← scripts de extração  
@@ -29,7 +30,19 @@ pipeline-financas-b3/
 │   │   └── marts/   ← camada gold  
 ├── data/  
 │   └── bronze/      ← dados brutos CSV  
-└── docs/            ← diagramas e documentação  
+└── docs/            ← diagramas e documentação
+
+## Screenshots
+
+> Dashboard Streamlit com cotações e métricas da B3
+
+![dashboard](docs/dashboard.png)
+
+## Próximos passos
+- [ ] Conectar Power BI ao DuckDB
+- [ ] Adicionar mais ações ao pipeline
+- [ ] Implementar alertas por e-mail no Airflow
+- [ ] Deploy do Streamlit no Streamlit Cloud
 
 ## 🗒️Stack
 - **yfinance** — coleta de cotações da B3
@@ -63,6 +76,13 @@ docker compose up --build -d
 ### 4. Executar o pipeline
 - Acesse a DAG `pipeline_cotacoes_b3`
 - Clique em **Trigger DAG**
+
+### 5. Rodar o dashboard
+> **Atenção:** rode o dbt antes do Streamlit para gerar o banco de dados.
+```bash
+venv\Scripts\python.exe -m streamlit run dashboard.py
+```
+- URL: http://localhost:8501
 
 ---
 
